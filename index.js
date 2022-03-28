@@ -14,8 +14,8 @@ const MatrixHunterWord = [
 
 const gabarito = "boa";
 const alvo = {
-  x: 2,
-  y: 1,
+  x: 0,
+  y: 0,
 };
 
 const circle = {
@@ -29,70 +29,184 @@ const circle = {
   bottomLeft: { x: alvo.x + 1, y: alvo.y - 1 },
 };
 
-// for (let index = 0; index <= 4; index++) {
-//   const topBool = false
-//   const bottomBool = false
-//   const leftBool = false
-//   const rightBool = false
+let TAMANHO_ARRAY = 0;
+MatrixHunterWord.map((linha) => {
+  linha.map(() => {
+    TAMANHO_ARRAY += 1;
+  });
+});
 
-//   if(topBool == false){
-//     resp =+ MatrixHunterWord[circle.top.x][circle.top.y]
-//     topBool = true
-//   }else{
-//     if(bottomBool == false){
-//       resp =+ MatrixHunterWord[circle.bottom.x][circle.bottom.y]
-//       bottomBool = true
-//     }else{
-//       if(leftBool == false){
-//         resp =+ MatrixHunterWord[circle.left.x][circle.left.y]
-//         leftBool = true
-//       }else{
-//         if(rightBool == false){
-//           resp =+ MatrixHunterWord[circle.right.x][circle.right.y]
-//           rightBool = true
-//         }
+let resposta = "";
+const SEGUNDA_LETRA_GABARITO = gabarito[1];
+
+// for (let index = 0; index < 4; index++) {
+
+// }
+
+// if (circle.top == INICIAL_GABARITO) {
+//   console.log("letra inicial do gabarito: Verdadeira");
+// } else {
+//   console.log("letra inicial do gabarito: False");
+//   if (circle.bottom == INICIAL_GABARITO) {
+//     console.log("letra inicial do gabarito: Verdadeira");
+//   } else {
+//     console.log("letra inicial do gabarito: False");
+//     if (circle.left == INICIAL_GABARITO) {
+//       console.log("letra inicial do gabarito: Verdadeira");
+//     } else {
+//       console.log("letra inicial do gabarito: False");
+//       if (circle.right == INICIAL_GABARITO) {
+//         console.log("letra inicial do gabarito: Verdadeira");
+//       } else {
+//         console.log("letra inicial do gabarito: False");
 //       }
 //     }
 //   }
 // }
 
-console.log(MatrixHunterWord);
-console.log();
-console.log(
-  "Alvo: " +
-    MatrixHunterWord[alvo.x][alvo.y] +
-    " || " +
-    "X: " +
-    alvo.x +
-    " : " +
-    "Y: " +
-    alvo.y
-);
-console.log("Top do Alvo: " + MatrixHunterWord[circle.top.x][circle.top.y]);
-console.log(
-  "Bottom do Alvo: " + MatrixHunterWord[circle.bottom.x][circle.bottom.y]
-);
-console.log("Left do Alvo: " + MatrixHunterWord[circle.left.x][circle.left.y]);
-console.log(
-  "Right do Alvo: " + MatrixHunterWord[circle.right.x][circle.right.y]
-);
-console.log(
-  "TopRight do Alvo: ",
-  MatrixHunterWord[circle.topRight.x][circle.topRight.y]
-);
-console.log(
-  "TopLeft do Alvo: ",
-  MatrixHunterWord[circle.topLeft.x][circle.topLeft.y]
-);
-console.log(
-  "baixo-Direita do Alvo: ",
-  MatrixHunterWord[circle.bottomRight.x][circle.bottomRight.y]
-);
-console.log(
-  "baixo-Esquerda do Alvo: ",
-  MatrixHunterWord[circle.bottomLeft.x][circle.bottomLeft.y]
-);
-console.log("circulo: ", circle);
+if (MatrixHunterWord[alvo.x][alvo.y] == gabarito[0]) {
+  console.log("letra inicial do gabarito: Verdadeira");
+  // VERIFICAÇÃO EM CIMA DO ALVO
+  if (circle.top.x != -1 || circle.top.y > MatrixHunterWord.length) {
+    console.log("há letras em cima");
+    if (
+      MatrixHunterWord[circle.top.x][circle.top.y] == SEGUNDA_LETRA_GABARITO
+    ) {
+      console.log("segunda letra encontrada em cima do alvo");
+    }
+  } else {
+    console.log("não há letras em cima");
+  }
+  // VERIFICAÇÃO NA ESQUERDA DO ALVO
+  if (circle.left.y != -1 || circle.left.y > MatrixHunterWord.length) {
+    console.log("há letras na esquerda");
+    if (
+      MatrixHunterWord[circle.left.x][circle.left.y] == SEGUNDA_LETRA_GABARITO
+    ) {
+      console.log("segunda letra encontrada na esquerda do alvo");
+    }
+  } else {
+    console.log("não há letras na esquerda");
+  }
+  // VERIFICAÇÃO NA DIREITA DO ALVO
+  if (circle.right.y != -1 || circle.right.y > MatrixHunterWord.length) {
+    console.log("há letras na direita");
+    if (
+      MatrixHunterWord[circle.right.x][circle.right.y] == SEGUNDA_LETRA_GABARITO
+    ) {
+      console.log("segunda letra encontrada na direita do alvo");
+    }
+  } else {
+    console.log("não há letras na direita");
+  }
+  // VERIFICAÇÃO EM BAXO DO ALVO
+  if (circle.bottom.x != -1 || circle.bottom.x > MatrixHunterWord.length) {
+    console.log("há letras em baixo");
+    if (
+      MatrixHunterWord[circle.bottom.x][circle.bottom.y] ==
+      SEGUNDA_LETRA_GABARITO
+    ) {
+      console.log("segunda letra encontrada em baixo do alvo");
+    }
+  } else {
+    console.log("não há letras em baixo");
+  }
+  // VERIFICAÇÃO EM BAIXO-DIREITA DO ALVO
+  if (
+    circle.bottomRight.x != -1 ||
+    circle.bottomRight.x > MatrixHunterWord.length
+  ) {
+    console.log("há letras em baixo-direita");
+    if (
+      MatrixHunterWord[circle.bottomRight.x][circle.bottomRight.y] ==
+      SEGUNDA_LETRA_GABARITO
+    ) {
+      console.log("segunda letra encontrada em baixa-direita do alvo");
+    }
+  } else {
+    console.log("não há letras em baixo-direita");
+  }
+  // VERIFICAÇÃO EM CIMA-DIREITA DO ALVO
+  if (circle.topRight.x != -1 || circle.topRight.x > MatrixHunterWord.length) {
+    console.log("há letras em cima direita");
+    if (
+      MatrixHunterWord[circle.topRight.x][circle.topRight.y] ==
+      SEGUNDA_LETRA_GABARITO
+    ) {
+      console.log("segunda letra encontrada em cima-direita do alvo");
+    }
+  } else {
+    console.log("não há letras em cima-direita");
+  }
+  // VERIFICAÇÃO EM TOP-ESQUERDA DO ALVO
+  if (circle.topLeft.x != -1 || circle.topLeft.x > MatrixHunterWord.length) {
+    console.log("há letras em cima-esquerda");
+    if (
+      MatrixHunterWord[circle.topLeft.x][circle.topLeft.y] ==
+      SEGUNDA_LETRA_GABARITO
+    ) {
+      console.log("segunda letra encontrada em cima-esquerda do alvo");
+    }
+  } else {
+    console.log("não há letras em cima-esquerda");
+  }
+  // VERIFICAÇÃO EM BAIXA-ESQUERDA DO ALVO
+  if (
+    circle.bottomLeft.y != -1 ||
+    circle.bottomLeft.y > MatrixHunterWord.length
+  ) {
+    console.log("há letras em baixa-esquerda");
+    if (
+      MatrixHunterWord[circle.bottomLeft.x][circle.bottomLeft.y] ==
+      SEGUNDA_LETRA_GABARITO
+    ) {
+      console.log("segunda letra encontrada em baixa-esquerda do alvo");
+    }
+  } else {
+    console.log("não há letras em baixa-esquerda");
+  }
+} else {
+  console.log("letra inicial do gabarito: falsa");
+}
+
+// console.log(MatrixHunterWord);
+// console.log();
+// console.log(
+//   "Alvo: " +
+//     MatrixHunterWord[alvo.x][alvo.y] +
+//     " || " +
+//     "X: " +
+//     alvo.x +
+//     " : " +
+//     "Y: " +
+//     alvo.y
+// );
+// console.log("Top do Alvo: " + MatrixHunterWord[circle.top.x][circle.top.y]);
+// console.log(
+//   "Bottom do Alvo: " + MatrixHunterWord[circle.bottom.x][circle.bottom.y]
+// );
+// console.log("Left do Alvo: " + MatrixHunterWord[circle.left.x][circle.left.y]);
+// console.log(
+//   "Right do Alvo: " + MatrixHunterWord[circle.right.x][circle.right.y]
+// );
+// console.log(
+//   "TopRight do Alvo: ",
+//   MatrixHunterWord[circle.topRight.x][circle.topRight.y]
+// );
+// console.log(
+//   "TopLeft do Alvo: ",
+//   MatrixHunterWord[circle.topLeft.x][circle.topLeft.y]
+// );
+// console.log(
+//   "baixo-Direita do Alvo: ",
+//   MatrixHunterWord[circle.bottomRight.x][circle.bottomRight.y]
+// );
+// console.log(
+//   "baixo-Esquerda do Alvo: ",
+//   MatrixHunterWord[circle.bottomLeft.x][circle.bottomLeft.y]
+// );
+// console.log("tamanho: ", TAMANHO_ARRAY);
+// console.log("circulo: ", circle);
 
 // // primeiro [] se refere a linha, o indice começa do 0
 // // segundo [] se refere ao objeto baseado no indice, lendo da esquerda p/ direita
