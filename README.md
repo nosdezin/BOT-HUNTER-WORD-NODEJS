@@ -13,8 +13,8 @@
 [X] fazer um alvo num lugar do caça-palavra
 [X] fazer um sistema que pega as letras envolta de um alvo
 [*NÃO PRECISA FAZER*] fazer ele ignorar os valores "undefined"
-[X] fazer uma verificação se a letra inicial do alvo quando junta com umas das letras em volta forma o gabarito
-[+/-] pegar a horizontal, vertical ou diagonal, caso haja a verificação acima seja verdadeira
-[+/-] tratar essa "resposta" que o sistema pegou, comparando ela com o gabarito
+[X] fazer uma verificação se a letra inicial do alvo junta com ao de uns dos lado pode conter umas das respostas do gabarito
+[X] pegar a horizontal, vertical ou diagonal, caso haja a verificação acima seja verdadeira
+[X] tratar essa "resposta" que o sistema pegou, comparando ela com o gabarito
 [] mudar a posição do alvo para cada ciclo completo
 ```
