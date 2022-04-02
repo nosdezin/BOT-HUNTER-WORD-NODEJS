@@ -16,5 +16,6 @@
 [X] fazer uma verificação se a letra inicial do alvo junta com ao de uns dos lado pode conter umas das respostas do gabarito
 [X] pegar a horizontal, vertical ou diagonal, caso haja a verificação acima seja verdadeira
 [X] tratar essa "resposta" que o sistema pegou, comparando ela com o gabarito
-[] mudar a posição do alvo para cada ciclo completo
+[X] mudar a posição do alvo para cada ciclo completo
+[] Limpar o codigo e fazer ele de fato funcionar
 ```
