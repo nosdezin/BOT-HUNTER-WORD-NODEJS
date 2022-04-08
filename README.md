@@ -12,7 +12,6 @@
 [X] fazer um caça-palavra em forma de matriz
 [X] fazer um alvo num lugar do caça-palavra
 [X] fazer um sistema que pega as letras envolta de um alvo
-[*NÃO PRECISA FAZER*] fazer ele ignorar os valores "undefined"
 [X] fazer uma verificação se a letra inicial do alvo junta com ao de uns dos lado pode conter umas das respostas do gabarito
 [X] pegar a horizontal, vertical ou diagonal, caso haja a verificação acima seja verdadeira
 [X] tratar essa "resposta" que o sistema pegou, comparando ela com o gabarito
