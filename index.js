@@ -1,8 +1,8 @@
 const MatrixHunterWord = [
-  ["b", "a", "a", "f"],
-  ["o", "h", "i", "a"],
-  ["a", "k", "l", "o"],
-  ["m", "n", "a", "b"],
+  ["c", "a", "a", "f"],
+  ["a", "o", "i", "a"],
+  ["b", "o", "a", "o"],
+  ["m", "n", "a", "a"],
 ];
 
 const gabarito = "boa";
@@ -122,12 +122,12 @@ const GET_ANSWER = (tipo, resposta, linha, coluna) => {
         coluna++;
       }
       break;
-    default:
-      console.log("Deu errado");
-      break;
+    // default:
+    //   console.log("Deu errado");
+    //   break;
   }
   if (answer != gabarito) {
-    console.log("RESPOSTA NAO CORRESPONDE AO GABARITO");
+    console.log("RESPOSTA NÃO CORRESPONDE AO GABARITO");
   }
 
   resposta = answer;
@@ -139,107 +139,95 @@ let linha = 0;
 let coluna = 0;
 
 const HUNTER_WORD_FUNCTION = () => {
-  console.log("Iniciando o bot");
+  // console.log("Iniciando o bot");
   if (MatrixHunterWord[alvo.x][alvo.y] == gabarito[0]) {
     if (circle.top.x != -1 || circle.top.x > MatrixHunterWord.length) {
-      GET_ANSWER("cima", resposta, linha, coluna);
-    } else {
-      if (circle.left.y != -1 || circle.left.y > MatrixHunterWord.length) {
-        if (
-          MatrixHunterWord[circle.left.x][circle.left.y] ==
-          SEGUNDA_LETRA_GABARITO
-        ) {
-          GET_ANSWER("esquerda", resposta, linha, coluna);
-        }
-      } else {
-        if (circle.right.y != -1 || circle.right.y > MatrixHunterWord.length) {
-          if (
-            MatrixHunterWord[circle.right.x][circle.right.y] ==
-            SEGUNDA_LETRA_GABARITO
-          ) {
-            resposta = GET_ANSWER("direita", resposta, linha, coluna);
-          }
-        } else {
-          if (circle.bottom.x != -1 || circle.bottom.x != 4) {
-            if (
-              MatrixHunterWord[circle.bottom.x][circle.bottom.y] ==
-              SEGUNDA_LETRA_GABARITO
-            ) {
-              GET_ANSWER("baixo", resposta, linha, coluna);
-            }
-          } else {
-            if (
-              circle.bottomRight.x != -1 ||
-              circle.bottomRight.x > MatrixHunterWord.length
-            ) {
-              if (
-                MatrixHunterWord[circle.bottomRight.x][circle.bottomRight.y] ==
-                SEGUNDA_LETRA_GABARITO
-              ) {
-                GET_ANSWER("baixo-direito", resposta, linha, coluna);
-              }
-            } else {
-              if (
-                circle.bottomLeft.y != -1 ||
-                circle.bottomLeft.y > MatrixHunterWord.length
-              ) {
-                if (
-                  MatrixHunterWord[circle.bottomLeft.x][circle.bottomLeft.y] ==
-                  SEGUNDA_LETRA_GABARITO
-                ) {
-                  GET_ANSWER("baixo-esquerda", resposta, linha, coluna);
-                }
-              } else {
-                if (
-                  circle.topRight.x != -1 ||
-                  circle.topRight.x > MatrixHunterWord.length
-                ) {
-                  if (
-                    MatrixHunterWord[circle.topRight.x][circle.topRight.y] ==
-                    SEGUNDA_LETRA_GABARITO
-                  ) {
-                    GET_ANSWER("cima-direito", resposta, linha, coluna);
-                  }
-                } else {
-                  if (
-                    circle.topLeft.x != -1 ||
-                    circle.topLeft.x > MatrixHunterWord.length
-                  ) {
-                    if (
-                      MatrixHunterWord[circle.topLeft.x][circle.topLeft.y] ==
-                      SEGUNDA_LETRA_GABARITO
-                    ) {
-                      GET_ANSWER("cima-esquerdo", resposta, linha, coluna);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+      resposta = GET_ANSWER("cima", resposta, linha, coluna);
+    }
+    if (circle.bottom.x != -1 || circle.bottom.x != 4) {
+      if (
+        MatrixHunterWord[circle.bottom.x][circle.bottom.y] ==
+        SEGUNDA_LETRA_GABARITO
+      ) {
+        resposta = GET_ANSWER("baixo", resposta, linha, coluna);
+      }
+    }
+    if (circle.left.y != -1 || circle.left.y > MatrixHunterWord.length) {
+      if (
+        MatrixHunterWord[circle.left.x][circle.left.y] == SEGUNDA_LETRA_GABARITO
+      ) {
+        GET_ANSWER("esquerda", resposta, linha, coluna);
+      }
+    }
+    if (circle.right.y != -1 || circle.right.y > MatrixHunterWord.length) {
+      if (
+        MatrixHunterWord[circle.right.x][circle.right.y] ==
+        SEGUNDA_LETRA_GABARITO
+      ) {
+        resposta = GET_ANSWER("direita", resposta, linha, coluna);
+      }
+    }
+    if (
+      circle.bottomRight.x != -1 ||
+      circle.bottomRight.x > MatrixHunterWord.length
+    ) {
+      if (
+        MatrixHunterWord[circle.bottomRight.x][circle.bottomRight.y] ==
+        SEGUNDA_LETRA_GABARITO
+      ) {
+        resposta = GET_ANSWER("baixo-direito", resposta, linha, coluna);
+      }
+    }
+    if (
+      circle.bottomLeft.y != -1 ||
+      circle.bottomLeft.y > MatrixHunterWord.length
+    ) {
+      if (
+        MatrixHunterWord[circle.bottomLeft.x][circle.bottomLeft.y] ==
+        SEGUNDA_LETRA_GABARITO
+      ) {
+        resposta = GET_ANSWER("baixo-esquerda", resposta, linha, coluna);
+      }
+    }
+    if (
+      circle.topRight.x != -1 ||
+      circle.topRight.x > MatrixHunterWord.length
+    ) {
+      if (
+        MatrixHunterWord[circle.topRight.x][circle.topRight.y] ==
+        SEGUNDA_LETRA_GABARITO
+      ) {
+        resposta = GET_ANSWER("cima-direito", resposta, linha, coluna);
+      }
+    }
+    if (circle.topLeft.x != -1 || circle.topLeft.x > MatrixHunterWord.length) {
+      if (
+        MatrixHunterWord[circle.topLeft.x][circle.topLeft.y] ==
+        SEGUNDA_LETRA_GABARITO
+      ) {
+        resposta = GET_ANSWER("cima-esquerdo", resposta, linha, coluna);
       }
     }
   } else {
-    console.log("letra nao encontrada");
+    console.log("letra não encontrada");
   }
-  console.log("Terminando  o bot");
+  // console.log("Terminando  o bot");
 };
 
 console.log(MatrixHunterWord);
-HUNTER_WORD_FUNCTION();
 
-// while (ciclo_completo == false) {
-//   HUNTER_WORD_FUNCTION();
-//   console.log("AlvoX: ",alvo.x," AlvoY: ",alvo.y);
-//   if (alvo.x == MatrixHunterWord.length - 1 && alvo.y == COLUNA_TAMANHO - 1) {
-//     ciclo_completo = true;
-//   } else {
-//     if (alvo.x == 3) {
-//       alvo.x = 0;
-//       alvo.y += 1;
-//     }
-//   }
-//   alvo.x += 1;
-// }
+while (ciclo_completo == false) {
+  HUNTER_WORD_FUNCTION();
+  // console.log("AlvoX: ",alvo.x," AlvoY: ",alvo.y);
+  if (alvo.x == MatrixHunterWord.length - 1 && alvo.y == COLUNA_TAMANHO - 1) {
+    ciclo_completo = true;
+  } else {
+    if (alvo.x == 3) {
+      alvo.x = 0;
+      alvo.y += 1;
+    }
+  }
+  alvo.x += 1;
+}
 
 console.log("Resposta: ", resposta);
