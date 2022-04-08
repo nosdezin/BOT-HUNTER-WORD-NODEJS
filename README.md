@@ -17,5 +17,5 @@
 [X] pegar a horizontal, vertical ou diagonal, caso haja a verificação acima seja verdadeira
 [X] tratar essa "resposta" que o sistema pegou, comparando ela com o gabarito
 [X] mudar a posição do alvo para cada ciclo completo
-[] Limpar o codigo e fazer ele de fato funcionar
+[X] Limpar o codigo e fazer ele de fato funcionar
 ```
