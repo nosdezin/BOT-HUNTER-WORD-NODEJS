@@ -18,3 +18,5 @@
 [X] mudar a posição do alvo para cada ciclo completo
 [X] Limpar o codigo e fazer ele de fato funcionar
 ```
+
+Começou no 25/03/2022
